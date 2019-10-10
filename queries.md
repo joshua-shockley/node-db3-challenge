@@ -39,4 +39,17 @@ join employees as e on od.employeeId = e.employeeid
 
 ### (Stretch)  Displays CategoryName and a new column called Count that shows how many products are in each category. Shows 9 records.
 
+select cat.categoryName,
+count(cat.categoryId) as count 
+from products as pod
+join categories as cat on pod.categoryId = cat.categoryId
+group by cat.categoryName
+
+
 ### (Stretch) Display OrderID and a  column called ItemCount that shows the total number of products placed on the order. Shows 196 records. 
+
+SELECT 
+od.orderId,
+sum(od.quantity) as ItemCount
+FROM [OrderDetails] as od
+group by od.orderId
